@@ -9,4 +9,5 @@ chainlit
 fastembed
 pysqlite3-binary
 gunicorn
+flask
 unstructured[md]
