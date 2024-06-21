@@ -1,6 +1,10 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+
 
 from llama_parse import LlamaParse
 
@@ -23,8 +27,8 @@ import streamlit as st
 
 nest_asyncio.apply()
 
-llamaparse_api_key = "llx-RGNfIFYjgNsijUxFkoqVnjDQYRqCkYbh2tYV53LVJFl85BGz"
-groq_api_key = "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"
+llamaparse_api_key = os.environ.get("llamaparse_api_key")
+groq_api_key = os.environ.get("groq_api_key")
 
 def set_custom_prompt():
         """
